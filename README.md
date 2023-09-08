@@ -7,6 +7,8 @@ This repository contains code and data used for the spatial analysis of articles
 
 ## Repository Structure:
 
+
+```
 hackaton_savoirs/
 ├── CorpusTEI
 │   ├── ANABASES-1437_Bonnet.xml
@@ -22,6 +24,7 @@ hackaton_savoirs/
 │   ├── unit_test (unit tests for the project)
 └── README.md (this file)
 
+```
 
 ## Getting Started:
 
