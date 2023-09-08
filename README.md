@@ -3,7 +3,7 @@
 
 ## Description:
 
-This repository contains code and data used for the spatial analysis of articles from the Savoirs digital library. Through the "Spatial Imaginary" approach, this project assesses the proximity of articles based on their geographical mentions, providing a unique spatial representation of the corpus.
+This repository contains code and data used for the spatial analysis of articles from the [Savoirs digital library](https://savoirs.huma-num.fr/). Through the "Spatial Imaginary" approach, this project assesses the proximity of articles based on their geographical mentions, providing a unique spatial representation of the corpus.
 
 ## Repository Structure:
 
