@@ -1,10 +1,32 @@
-# savoirs
-results from hackaton savoirs
+===================================
+    Savoirs GIS-Based Text Analysis
+===================================
 
-Défi 2. Analyse et visualisation du corpus Savoirs. Comment faire émerger des connaissances à partir des textes de Savoirs ?
+Description:
+------------
+This repository contains code and data used for the spatial analysis of articles from the Savoirs digital library. Through the "Spatial Imaginary" approach, this project assesses the proximity of articles based on their geographical mentions, providing a unique spatial representation of the corpus.
 
-À travers les techniques de la fouille de textes, du traitement automatique des langues, de l’analyse des réseaux et de l’espace, ou encore de la visualisation de données, proposez des analyses quantitatives et des visualisations pour faire émerger des connaissances à partir du corpus Savoirs. Il est possible, par exemple, de créer un réseau de citations d’auteurs ou de co-occurrences des entités et concepts nommés, ou encore une modélisation à sujet (topic modelling) pour faire émerger des thématiques. Ce ne sont là que des pistes possibles : bien d’autres moyens d’analyse seront appréciés, c’est à vous de les concevoir !
+Repository Structure:
+---------------------
+hackaton_savoirs/
+├── CorpusTEI
+│   ├── ANABASES-1437_Bonnet.xml
+│   ├── ... (other XML data files)
+├── python
+│   ├── data (folder containing processed data)
+│   ├── functions_geodata.py (functions for geo data processing)
+│   ├── functions.py (general utility functions)
+│   ├── functions_xml.py (functions for XML data handling)
+│   ├── geo_article.py (class definition for article geo-analysis)
+│   ├── main.py (main script to execute analysis)
+│   ├── pre_processing.py (pre-processing functions)
+│   ├── unit_test (unit tests for the project)
+└── README.md (this file)
 
-Défi 3. Parcours de lecture des textes. Quelles suggestions pour quels profils?
 
-Imaginez et concevez des stratégies de suggestion de lecture de textes pour les utilisateurs et utilisatrices de l’application Savoirs. Il est possible d’imaginer des mécanismes fondés sur les habitudes et les goûts des lecteurs et lectrices, sur leurs profils disciplinaires, en intégrant éventuellement une touche de sérendipité dans les recommandations.
+Getting Started:
+----------------
+1. Clone this repository.
+2. Ensure required libraries such as geopy, geocoder, shapely, pandas, and geopandas are installed.
+3. Navigate to the python folder and run main.py.
+
