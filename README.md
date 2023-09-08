@@ -1,6 +1,4 @@
-===================================
-    Savoirs GIS-Based Text Analysis
-===================================
+# Savoirs GIS-Based Text Analysis
 
 Description:
 ------------
