@@ -23,7 +23,6 @@ hackaton_savoirs/
 │   ├── pre_processing.py (pre-processing functions)
 │   ├── unit_test (unit tests for the project)
 └── README.md (this file)
-
 ```
 
 ## Getting Started:
