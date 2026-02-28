@@ -1,33 +1,62 @@
-# Savoirs GIS-Based Text Analysis
+# Hackathon Savoirs
 
+Spatial analysis and reading recommendation system for the Savoirs digital humanities corpus.
 
-## Description:
+## Overview
 
-This repository contains code and data used for the spatial analysis of articles from the [Savoirs digital library](https://savoirs.huma-num.fr/). Through the "Spatial Imaginary" approach, this project assesses the proximity of articles based on their geographical mentions, providing a unique spatial representation of the corpus.
+Analyzes the [Savoirs](https://savoirs.app/) French academic corpus by extracting geographic references from TEI/XML-encoded articles, geocoding place names, and computing spatial similarity between articles. Articles that discuss geographically related topics are surfaced as reading recommendations.
 
-## Repository Structure:
+## Tech Stack
 
+- **Geospatial:** GeoPandas, Shapely, Geopy (Nominatim), Geocoder (GeoNames API)
+- **XML Processing:** BeautifulSoup with lxml parser
+- **Data Processing:** Pandas
+- **Data Format:** GeoPackage (GPKG)
+
+## Pipeline
+
+```
+TEI/XML Corpus (~100 articles)
+    ↓
+Extract place names from <placename> tags
+    ↓
+Geocode locations (GeoNames API + Nominatim fallback)
+    ↓
+Save as GeoPackage (one per article)
+    ↓
+Compute pairwise spatial distances between articles
+    ↓
+Export similarity rankings as CSV
+```
+
+## Project Structure
 
 ```
 hackaton_savoirs/
-├── CorpusTEI
-│   ├── ANABASES-1437_Bonnet.xml
-│   ├── ... (other XML data files)
-├── python
-│   ├── data (folder containing processed data)
-│   ├── functions_geodata.py (functions for geo data processing)
-│   ├── functions.py (general utility functions)
-│   ├── functions_xml.py (functions for XML data handling)
-│   ├── geo_article.py (class definition for article geo-analysis)
-│   ├── main.py (main script to execute analysis)
-│   ├── pre_processing.py (pre-processing functions)
-│   ├── unit_test (unit tests for the project)
-└── README.md (this file)
+├── python/
+│   ├── pre_processing.py        # Geocoding pipeline (TEI → GeoPackage)
+│   ├── main.py                  # Pairwise distance computation
+│   ├── functions_xml.py         # TEI/XML extraction (titles, authors, places)
+│   ├── functions_geodata.py     # Geocoding and GeoDataFrame creation
+│   ├── geo_article.py           # GeoArticle class for spatial similarity
+│   ├── functions.py             # General utilities
+│   └── tests/                   # Unit tests
+├── CorpusTEI/                   # Input: TEI-encoded articles (ANABASES journal)
+└── data/
+    ├── article_locations/       # Output: GeoPackage files per article
+    └── distances/               # Output: CSV distance matrices
 ```
 
-## Getting Started:
+## Usage
 
-1. Clone this repository.
-2. Ensure required libraries such as geopy, geocoder, shapely, pandas, and geopandas are installed.
-3. Navigate to the python folder and run main.py.
+```bash
+# Stage 1: Geocode place names from TEI corpus
+python python/pre_processing.py
 
+# Stage 2: Compute pairwise article distances
+python python/main.py
+```
+
+## Context
+
+Built during the **Hackathon Savoirs** for challenges on the Savoirs corpus: extracting knowledge through text mining, spatial analysis, and data visualization, and designing reading recommendation strategies based on geographic and thematic similarity.
